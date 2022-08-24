@@ -25,3 +25,6 @@ schedules:
     include:
     - release
   always: false
+- stage: 'Test'
+  displayName: 'Deploy to the Test environment'
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'Schedule'))
