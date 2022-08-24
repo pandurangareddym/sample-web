@@ -18,11 +18,10 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
   condition: always()  
-- script:
-    echo Add condition based on requests
-  condition: |
-     and
-    (
-      succeeded(),
-      eq(variables['Build.SourceBranchName'], 'release')
-    )
+schedules:
+- cron: '0 3 * * *'
+  displayName: 'Deploy every day at 3 A.M.'
+  branches:
+    include:
+    - release
+  always: false
