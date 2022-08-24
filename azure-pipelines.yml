@@ -20,10 +20,4 @@ steps:
 - script:
     echo Hello World!
     condition: always()  
-- script:
-    echo Running Dev branch
-    condition: |
-      and ( 
-        succeded(),
-        eq(variables['Build.SourceBranchName'], 'release')
-      )
+
