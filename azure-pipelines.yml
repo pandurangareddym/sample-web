@@ -17,3 +17,13 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- script:
+    echo Hello World!
+    condition: always()  
+- script:
+    echo Running Dev branch
+    condition: |
+      and ( 
+        succeded(),
+        eq(variables['Build.SourceBranchName'], 'release')
+      )
