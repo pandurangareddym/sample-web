@@ -23,6 +23,6 @@ steps:
   condition: |
      and
     (
-     succeeded(),
-     eq(variables['Build.SourceBranchName'], 'release')
+      succeeded(),
+      eq(variables['Build.SourceBranchName'], 'release')
     )
